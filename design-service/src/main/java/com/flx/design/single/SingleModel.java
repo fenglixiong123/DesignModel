@@ -1,4 +1,4 @@
-package com.flx.design.service;
+package com.flx.design.single;
 
 /**
  * 单例模式
