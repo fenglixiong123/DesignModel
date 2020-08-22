@@ -1,0 +1,31 @@
+package com.flx.design.strategy.tax;
+
+/**
+ * @Author Fenglixiong
+ * @Create 2020/8/22 18:04
+ * @Description
+ *
+ * 税率计算器
+ * 国家会每年发布一个新版税率
+ * 通过升级税率方法来免于代码修改
+ **/
+public class TaxCalculator {
+
+    private final double salary;
+
+    private final double bonus;
+
+    public TaxCalculator(double salary, double bonus) {
+        this.salary = salary;
+        this.bonus = bonus;
+    }
+
+    public double taxMoney(){
+        return calcTax();
+    }
+
+    protected double calcTax(){
+        return 0;
+    }
+
+}
