@@ -2,6 +2,9 @@ package com.flx.design.template;
 
 import com.flx.design.template.cookie.ChefCook;
 import com.flx.design.template.cookie.MeCook;
+import com.flx.design.template.game.Game;
+import com.flx.design.template.game.HonorGame;
+import com.flx.design.template.game.LolGame;
 
 /**
  * @Author Fenglixiong
@@ -13,6 +16,9 @@ public class TemplateApp {
     public static void main(String[] args) {
 
         cookie();
+
+        game();
+
     }
 
     /**
@@ -23,6 +29,13 @@ public class TemplateApp {
         ChefCook chefCook = new ChefCook();
         meCook.cook();
         chefCook.cook();
+    }
+
+    public static void game(){
+        Game honor = new HonorGame();
+        honor.play();
+        Game lol = new LolGame();
+        lol.play();
     }
 
 }
