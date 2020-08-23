@@ -1,10 +1,12 @@
 package com.flx.design.strategy;
 
 import com.flx.design.strategy.calc.CalculateContext;
-import com.flx.design.strategy.calc.CalculateStrategy;
 import com.flx.design.strategy.calc.policy.OperationAdd;
 import com.flx.design.strategy.calc.policy.OperationSub;
-import com.flx.design.strategy.tax.TaxCalculator;
+import com.flx.design.strategy.tax.Tax;
+import com.flx.design.strategy.tax.Tax2008;
+import com.flx.design.strategy.tax.Tax2020;
+import com.flx.design.strategy.tax.TaxContext;
 
 /**
  * @Author Fenglixiong
@@ -32,13 +34,11 @@ public class StrategyApp {
 
     private static void calculateTax1999(final double salary, final double bonus) {
 
-        TaxCalculator taxCalculator = new TaxCalculator(salary,bonus){
-            @Override
-            protected double calcTax() {
-                return salary*0.1+bonus*0.15;
-            }
-        };
-        System.out.println("1999年应缴纳税费为："+taxCalculator.taxMoney());
+        TaxContext context2008 = new TaxContext(new Tax2008());
+        TaxContext context2020 = new TaxContext(new Tax2020());
+        System.out.println("2008年应缴纳税费为："+context2008.executeTax(salary,bonus));
+        System.out.println("2020年应缴纳税费为："+context2020.executeTax(salary,bonus));
+
     }
 
 }
