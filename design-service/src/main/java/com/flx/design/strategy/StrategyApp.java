@@ -3,9 +3,8 @@ package com.flx.design.strategy;
 import com.flx.design.strategy.calc.CalculateContext;
 import com.flx.design.strategy.calc.policy.OperationAdd;
 import com.flx.design.strategy.calc.policy.OperationSub;
-import com.flx.design.strategy.tax.Tax;
-import com.flx.design.strategy.tax.Tax2008;
-import com.flx.design.strategy.tax.Tax2020;
+import com.flx.design.strategy.tax.policy.Tax2008;
+import com.flx.design.strategy.tax.policy.Tax2020;
 import com.flx.design.strategy.tax.TaxContext;
 
 /**

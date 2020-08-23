@@ -7,9 +7,9 @@ package com.flx.design.strategy.tax;
  **/
 public class TaxContext {
 
-    private Tax tax;
+    private TaxStrategy tax;
 
-    public TaxContext(Tax tax) {
+    public TaxContext(TaxStrategy tax) {
         this.tax = tax;
     }
 

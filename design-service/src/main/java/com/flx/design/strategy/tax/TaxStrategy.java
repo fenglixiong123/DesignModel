@@ -9,7 +9,7 @@ package com.flx.design.strategy.tax;
  * 国家会每年发布一个新版税率
  * 通过升级税率方法来免于代码修改
  **/
-public interface Tax {
+public interface TaxStrategy {
 
     double calcTax(double salary,double bonus);
 
