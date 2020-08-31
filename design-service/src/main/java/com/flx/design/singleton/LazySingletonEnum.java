@@ -1,4 +1,4 @@
-package com.flx.design.single;
+package com.flx.design.singleton;
 
 import lombok.Data;
 import org.apache.commons.lang3.RandomUtils;

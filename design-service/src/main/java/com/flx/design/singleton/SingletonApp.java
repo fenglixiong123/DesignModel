@@ -1,4 +1,4 @@
-package com.flx.design.single;
+package com.flx.design.singleton;
 
 import java.util.stream.IntStream;
 

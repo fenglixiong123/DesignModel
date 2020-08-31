@@ -1,4 +1,4 @@
-package com.flx.design.single;
+package com.flx.design.singleton;
 
 import lombok.Data;
 
@@ -12,21 +12,21 @@ import lombok.Data;
  * 3.优雅的方式 holder方式
  * 4.枚举方式
  **/
-public class LazySingletonHolder {
+public class LazySingleton {
 
-    private static Student student;
+    private static volatile Student student;
 
     /**
-     * static不会初始化两次，而且是我们需要的时候才加载
+     * 加同步锁保证线程安全
+     * 但是枷锁会产生效率问题
+     * @return
      */
-    private static class InstanceHolder{
-        private final static Student student = new Student();
+    public synchronized static Student getInstance(){
+        if(student==null){
+            student = new Student();
+        }
+        return student;
     }
-
-    public static Student getInstance(){
-        return InstanceHolder.student;
-    }
-
 
     @Data
     static class Student{
