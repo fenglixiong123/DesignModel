@@ -26,6 +26,27 @@ public class LazySingletonDoubleCheck {
      * 添加volatile关键字
      * volatile关键字可以保证可见性和有序性，禁止内存进行编译优化
      * 添加此关键字对象创建完成是真正的完成
+     *
+     * 这里重点讲解下出现为什么会出现空指针异常？
+     * 假设LazySingletonDoubleCheck类有两个成员变量
+     * private Object object1;
+     * private Object object2;
+     * private LazySingletonDoubleCheck(){
+     *     object1 = new Object();
+     *     object2 = new Object();
+     * }
+     * 当JVM进行指令编译的时候，需要执行下面三部：
+     * obj1
+     * obj2
+     * instance
+     * 上面三条指令可以进行重排序
+     * 如果先执行给instance分配内存空间，返回instance引用
+     * 线程二拿到instance，准备去使用obj2，而此时obj2还未初始化，则出现空指针异常
+     * 如果使用volatile关键字则会禁止重排序，会首先执行
+     * object1 = new Object();
+     * object2 = new Object();
+     * 然后执行instance初始化
+     * 返回instance引用
      * @return
      */
     public static Student getInstanceDoubleCheck(){
