@@ -17,12 +17,19 @@ public class LazySingletonHolder {
     private static Student student;
 
     /**
-     * static不会初始化两次，而且是我们需要的时候才加载
+     * 静态内部类
+     * 静态内部类的优点是：外部类加载时并不需要立即加载内部类，内部类不被加载则不去初始化INSTANCE，故而不占内存。
      */
     private static class InstanceHolder{
         private final static Student student = new Student();
     }
 
+    /**
+     * 当第一次加载LazySingletonHolder类时并不会初始化instance,
+     * 只有在第一次调用LazySingletonHolder的getInstance()时Instance才会被初始化。
+     * 因此第一次调用getInstance方法会导致虚拟机加载InstanceHolder类
+     * @return
+     */
     public static Student getInstance(){
         return InstanceHolder.student;
     }
